@@ -50,7 +50,7 @@
                 </div>
                 <div class="form-group">
                     <label for="">Content</label>
-                    <textarea name="content" class="form-control" id="tiny" rows="5" column="10"></textarea>
+                    <textarea name="content" class="form-control"  rows="5" column="10"></textarea>
                 </div>
                 <div class="form-group">
                     <input type="submit" class="btn btn-success "  value="Submit">
