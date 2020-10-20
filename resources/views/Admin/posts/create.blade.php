@@ -50,7 +50,7 @@
                 </div>
                 <div class="form-group">
                     <label for="">Content</label>
-                    <textarea name="content" class="form-control" rows="5" column="10"></textarea>
+                    <textarea name="content" class="form-control" id="tiny" rows="5" column="10"></textarea>
                 </div>
                 <div class="form-group">
                     <input type="submit" class="btn btn-success "  value="Submit">
@@ -61,4 +61,21 @@
         </div>
 
     </div>
+@endsection
+
+
+@section('styles')
+
+@endsection
+
+@section('scripts')
+
+    <script src="https://cdn.tiny.cloud/1/hj792k117l0inekz8p0lwczrmdvvlgz7lf0vx3dooh2q937o/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
+    <script>
+        tinymce.init({
+            selector: '#tiny',
+            plugins: 'advlist autolink lists link image charmap print preview hr anchor pagebreak',
+            toolbar_mode: 'floating',
+        });
+    </script>
 @endsection

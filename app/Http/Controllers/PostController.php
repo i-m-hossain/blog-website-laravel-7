@@ -42,7 +42,7 @@ class PostController extends Controller
 
         if(count($categories)== 0 || count($tags)==0){
 
-            return redirect()->back()->with('error', 'You must have some categories and a tags to create a post');
+            return redirect()->back()->with('error', 'You must have some categories and tags to create a post');
         } //if there is no category user must creat a category first to creat a post
 
 

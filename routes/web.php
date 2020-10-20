@@ -44,6 +44,8 @@ Route::middleware('auth')->prefix('admin')->group(function () {
     Route::get('/user/admin/{id}', 'UserController@admin')->name('user.admin');
     Route::get('/user/notadmin/{id}', 'UserController@notAdmin')->name('user.notadmin');
 
+    Route::resource('/settings','settingController')->only(['index','update']);
+
 
 
 });

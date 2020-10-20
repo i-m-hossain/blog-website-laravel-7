@@ -19,6 +19,8 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+
+    @yield('styles')
 </head>
 <body>
     <div id="app">
@@ -114,6 +116,11 @@
                                 <li class="list-group-item">
                                     <a href="{{route('tag.index')}}">Show Tags</a>
                                 </li>
+                                @if(Auth::user()->admin)
+                                    <li class="list-group-item">
+                                        <a href="{{route('settings.index')}}">Change Settings</a>
+                                    </li>
+                                @endif
 
 
                             </ul>   {{--   navabar/menu created   --}}
@@ -122,9 +129,15 @@
                     <div  class="{{Auth::check() ? 'col-lg-8' : 'col-lg-12'}}">
                         @yield('content')
                     </div>
+
+
                 </div>
             </div>
         </main>
     </div>
+
+    @yield('scripts')
+
+
 </body>
 </html>
