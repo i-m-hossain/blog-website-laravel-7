@@ -12,19 +12,16 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
-
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/post/{slug}','FrontEndController@singlePost')->name('post.single');
+Route::get('/',  'FrontEndController@index');
 
 Auth::routes();
 
-//Route::get('/test',function (){
-////    return 'welcome';
-//   return App\Profile::find(1)->user;
-//});
 
 Route::middleware('auth')->prefix('admin')->group(function () {
+
+
+    Route::resource('/settings','settingController')->only(['index','update']);
 
     Route::post('/post/kill/{id}', 'PostController@kill')->name('post.kill');
     Route::get('/post/restore/{id}', 'PostController@restore')->name('post.restore');
@@ -44,7 +41,7 @@ Route::middleware('auth')->prefix('admin')->group(function () {
     Route::get('/user/admin/{id}', 'UserController@admin')->name('user.admin');
     Route::get('/user/notadmin/{id}', 'UserController@notAdmin')->name('user.notadmin');
 
-    Route::resource('/settings','settingController')->only(['index','update']);
+
 
 
 

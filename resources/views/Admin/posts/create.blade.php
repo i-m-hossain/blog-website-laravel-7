@@ -8,15 +8,6 @@
         <div class="card-body">
 
 
-{{--            @if ($errors->any())--}}
-{{--                <div class="alert alert-danger">--}}
-{{--                    <ul>--}}
-{{--                        @foreach ($errors->all() as $error)--}}
-{{--                            <li>{{ $error }}</li>--}}
-{{--                        @endforeach--}}
-{{--                    </ul>--}}
-{{--                </div>--}}
-{{--            @endif --}}{{-- Displaying Validation Errors --}}
             <div  style=" text-align: center">
                 <x-alert />
             </div>
@@ -48,34 +39,40 @@
                         </div>
                     @endforeach
                 </div>
+
                 <div class="form-group">
                     <label for="">Content</label>
-                    <textarea name="content" class="form-control"  rows="5" column="10"></textarea>
+                    <textarea name="content" id="editor" class="form-control"  rows="5" column="10"></textarea>
                 </div>
+
                 <div class="form-group">
                     <input type="submit" class="btn btn-success "  value="Submit">
                 </div>
+
 
             </form>
 
         </div>
 
     </div>
+
 @endsection
 
 
 @section('styles')
-
+{{--    <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.css" rel="stylesheet">--}}
 @endsection
 
 @section('scripts')
-
-    <script src="https://cdn.tiny.cloud/1/hj792k117l0inekz8p0lwczrmdvvlgz7lf0vx3dooh2q937o/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
     <script>
-        tinymce.init({
-            selector: '#tiny',
-            plugins: 'advlist autolink lists link image charmap print preview hr anchor pagebreak',
-            toolbar_mode: 'floating',
-        });
+
+        ClassicEditor.create( document.querySelector( '#editor' ) )
+            .catch( error => {
+                console.error( error );
+            } );
     </script>
+
 @endsection
+
+
+
