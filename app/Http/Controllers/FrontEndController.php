@@ -6,6 +6,7 @@ use App\Category;
 use App\Post;
 use App\Setting;
 use App\Tag;
+use App\User;
 use Illuminate\Http\Request;
 
 class FrontEndController extends Controller
@@ -99,6 +100,24 @@ class FrontEndController extends Controller
             'posts',
             'setting',
             'categories',
+
+        ]));
+    }
+    public function userPost($id){
+
+        $user = User::find($id);
+        $posts= $user->posts;
+        $categories = Category::all();
+        $setting = Setting::first();
+        $tags = Tag::all();
+        return view('userpost',compact([
+            'categories',
+            'posts',
+            'setting',
+            'categories',
+            'tags',
+            'user'
+
 
         ]));
     }

@@ -10,7 +10,7 @@
 
         <div class="stunning-header stunning-header-bg-lightviolet">
             <div class="stunning-header-content">
-                <h1 class="stunning-header-title">Category: {{$category->name}}</h1>
+                <h1 class="stunning-header-title">Post By: {{$user->name}}</h1>
             </div>
         </div>
 
@@ -26,8 +26,8 @@
                     <div class="row">
                         <div class="case-item-wrap">
                             @if (count($posts) ==  0){
-                                <h4 class="text-center ">There are no posts in this category</h4>
-                                }
+                            <h4 class="text-center ">There are no posts in this category</h4>
+                            }
                             @endif
                             @foreach($posts as $post)
                                 <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
@@ -61,7 +61,6 @@
                                 </div>
                                 @foreach($tags as $tag)
                                     <div class="tags-wrap">
-
                                         <a href="{{route('tag.single',$tag->id)}}" class="w-tags-item">{{$tag->tag}}</a>
 
                                     </div>

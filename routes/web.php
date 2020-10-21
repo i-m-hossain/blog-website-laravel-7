@@ -13,12 +13,12 @@ use Illuminate\Support\Facades\Route;
 |
 */
 Route::get('/post/{slug}','FrontEndController@singlePost')->name('post.single');
+Route::get('/user/post/{id}','FrontEndController@userPost')->name('user.post');
 
 //search  query
 Route::get('/results',function (){
 
        $posts = \App\Post::where('title','like','%'.request('query').'%')->get();
-
        $request= 'Search results:'.request('query');
        $setting = \App\Setting::first();
        $categories = \App\Category::all()->take(5);
