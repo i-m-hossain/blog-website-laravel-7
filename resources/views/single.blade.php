@@ -39,7 +39,7 @@
 
                                 <span class="category">
                                 <i class="seoicon-tags"></i>
-                                <a href="#">{{$post->category->name}}</a>
+                                <a href="{{route('category.single', $post->category->id)}}">{{$post->category->name}}</a>
 
                             </span>
 
@@ -56,9 +56,9 @@
 
                                 <div class="widget w-tags">
                                     <div class="tags-wrap">
-                                        @foreach($post->tags as $tags)
+                                        @foreach($post->tags as $tag)
 
-                                            <a href="#" class="w-tags-item">{{$tags->tag}}</a>
+                                            <a href="#" class="w-tags-item">{{$tag->tag}}</a>
                                         @endforeach
 
                                     </div>
@@ -125,6 +125,9 @@
                         </div>
                     </div>
 
+
+
+{{-----------------Pagination-----------------------------}}
                     <div class="pagination-arrow">
                         @if($prev)
                             <a href="{{route('post.single',$prev->slug)}}" class="btn-prev-wrap">
@@ -152,7 +155,7 @@
 
 
                     </div>
-
+{{------------------comments-------------------}}
                     <div class="comments">
 
                         <div class="heading text-center">
@@ -163,10 +166,7 @@
                             </div>
                         </div>
                     </div>
-
-                    <div class="row">
-
-                    </div>
+                    @include('includes.disquss')
 
 
                 </div>
@@ -186,17 +186,11 @@
                                 </div>
                             </div>
 
-                            <div class="tags-wrap">
-                                <a href="#" class="w-tags-item">SEO</a>
-                                <a href="#" class="w-tags-item">Advertising</a>
-                                <a href="#" class="w-tags-item">Business</a>
-                                <a href="#" class="w-tags-item">Optimization</a>
-                                <a href="#" class="w-tags-item">Digital Marketing</a>
-                                <a href="#" class="w-tags-item">Social</a>
-                                <a href="#" class="w-tags-item">Keyword</a>
-                                <a href="#" class="w-tags-item">Strategy</a>
-                                <a href="#" class="w-tags-item">Audience</a>
-                            </div>
+                            @foreach($tags as $t)
+                                <div class="tags-wrap">
+                                    <a href="{{route('tag.single',$t->id)}}" class="w-tags-item ">{{$t->tag}}</a>
+                                </div>
+                            @endforeach
                         </div>
                     </aside>
                 </div>

@@ -51,7 +51,7 @@
                     @endforeach
                 @else
                     <tbody>
-                    <td colspan="5" class="text-center">There is no tag available</td>
+                        <td colspan="5" class="text-center">There is no tag available</td>
                     </tbody>
                 @endif
             </table>

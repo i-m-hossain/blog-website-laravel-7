@@ -3,7 +3,7 @@
         <div class="header-content-wrapper">
             <div class="logo">
                 <div class="logo-text">
-                    <div class="logo-title">{{$setting->site_name}}</div>
+                    <div class="logo-title"><a href="{{route('homeFront')}}">{{$setting->site_name}}</a></div>
                 </div>
             </div>
 
@@ -18,11 +18,19 @@
                             </span>
                 </a>
                 <ul class="primary-menu-menu" style="overflow: hidden;">
+
                     @foreach($categories as $category)
                         <li class="">
-                            <a href="#">{{$category->name}}</a>
+                            <a href="{{route('category.single',$category->id)}}">{{$category->name}}</a>
                         </li>
                     @endforeach
+                    @if(Auth::user())
+                        <li class="float-right">
+                            <a href="{{route('home')}}">Backend</a>
+                        </li>
+                    @endif
+
+
                 </ul>
             </nav>
             <ul class="nav-add">

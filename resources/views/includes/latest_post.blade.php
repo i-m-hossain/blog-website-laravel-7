@@ -20,7 +20,7 @@
                     <div class="post__content-info">
 
                         <h2 class="post__title entry-title ">
-                            <a href="15_blog_details.html">{{$latestpost->title}}</a>
+                            <a href="{{route('post.single', $latestpost->slug)}}">{{$latestpost->title}}</a>
                         </h2>
 
                         <div class="post-additional-info">
@@ -37,7 +37,7 @@
 
                             <span class="category">
                                             <i class="seoicon-tags"></i>
-                                            <a href="#">{{$latestpost->category->name}}</a>
+                                            <a href="{{route('category.single',$latestpost->category->id)}}">{{$latestpost->category->name}}</a>
                                         </span>
 
                             <span class="post__comments">
@@ -78,7 +78,7 @@
                     <div class="post__content-info">
 
                         <h2 class="post__title entry-title ">
-                            <a href="15_blog_details.html">{{$secondpost->title}}</a>
+                            <a href="{{route('post.single',$secondpost->slug)}}">{{$secondpost->title}}</a>
                         </h2>
 
                         <div class="post-additional-info">
@@ -95,7 +95,7 @@
 
                             <span class="category">
                                             <i class="seoicon-tags"></i>
-                                            <a href="#">{{$secondpost->category->name}}</a>
+                                            <a href="{{route('category.single',$secondpost->category->id)}}">{{$secondpost->category->name}}</a>
                                         </span>
 
                             <span class="post__comments">
@@ -133,7 +133,7 @@
                     <div class="post__content-info">
 
                         <h2 class="post__title entry-title ">
-                            <a href="15_blog_details.html">{{$thirdpost->title}}</a>
+                            <a href="{{route('post.single',$thirdpost->slug)}}">{{$thirdpost->title}}</a>
                         </h2>
 
                         <div class="post-additional-info">
@@ -150,7 +150,7 @@
 
                             <span class="category">
                                             <i class="seoicon-tags"></i>
-                                            <a href="#">{{$thirdpost->category->name}}</a>
+                                            <a href="{{route('category.single',$thirdpost->category->id)}}">{{$thirdpost->category->name}}</a>
                                         </span>
 
                             <span class="post__comments">

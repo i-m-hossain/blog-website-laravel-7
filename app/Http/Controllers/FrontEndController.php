@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Category;
 use App\Post;
 use App\Setting;
+use App\Tag;
 use Illuminate\Http\Request;
 
 class FrontEndController extends Controller
@@ -35,12 +36,12 @@ class FrontEndController extends Controller
             'laravel',
             'wordpress',
             'tutorial',
+
         ]));
     }
     public function singlePost($slug){
 
-
-
+        $tags = Tag::all();
         $post = Post::where('slug', $slug)->get()->first();
 
         //For next and prev button (pagination)
@@ -59,6 +60,43 @@ class FrontEndController extends Controller
             'post',
             'next',
             'prev',
+            'setting',
+            'categories',
+            'tags'
+
+        ]));
+    }
+
+    public function category($id){
+        $tags = Tag::all();
+        $category = Category::find($id);
+        $posts = $category->posts;
+        $setting = Setting::first();
+        $categories = Category::all()->take(6);
+
+        return view('category',compact([
+            'category',
+            'posts',
+            'setting',
+            'categories',
+            'tags'
+        ]));
+    }
+
+    public function tag($id){
+
+
+
+        $tag = Tag::find($id);
+        $posts = $tag->posts;
+        $tags =Tag::all();
+        $setting = Setting::first();
+        $categories = Category::all()->take(6);
+
+        return view('tag',compact([
+            'tag',
+            'tags',
+            'posts',
             'setting',
             'categories',
 

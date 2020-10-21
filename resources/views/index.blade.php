@@ -68,7 +68,7 @@
                                             <div class="case-item__thumb">
                                                 <img src="{{$post->featured_image}}" alt="our case">
                                             </div>
-                                            <h6 class="case-item__title"><a href="#">{{$post->title}}</a></h6>
+                                            <h6 class="case-item__title"><a href="{{route('post.single',$post->slug)}}">{{$post->title}}</a></h6>
                                         </div>
                                     </div>
                                 @endforeach
@@ -100,7 +100,7 @@
                                             <div class="case-item__thumb">
                                                 <img src="{{$post->featured_image}}" alt="our case">
                                             </div>
-                                            <h6 class="case-item__title"><a href="#">{{$post->title}}</a></h6>
+                                            <h6 class="case-item__title"><a href="{{route('post.single',$post->slug)}}">{{$post->title}}</a></h6>
                                         </div>
                                     </div>
                                 @endforeach
