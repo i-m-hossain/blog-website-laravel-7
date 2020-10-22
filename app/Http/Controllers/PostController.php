@@ -5,8 +5,10 @@ namespace App\Http\Controllers;
 use App\Category;
 use App\Post;
 use App\Tag;
+use Illuminate\Http\File;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 use function GuzzleHttp\Promise\all;
 use Illuminate\Support\Str;
 
@@ -83,7 +85,7 @@ class PostController extends Controller
              'category_id' => $request->category_id,
              'content' => $request->content,
              'slug' => Str_slug($request->title),   //Creating slug for the title
-             'user_id'=>Auth::id();
+             'user_id'=>Auth::id(),
 
          ];
 

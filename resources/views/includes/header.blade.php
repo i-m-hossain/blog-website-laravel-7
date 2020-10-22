@@ -26,12 +26,26 @@
                     @endforeach
                     @if(Auth::user())
                         <li class="float-right">
-                            <a href="{{route('home')}}">Backend</a>
+                            <a href="{{route('dashboard')}}">Backend</a>
                         </li>
                     @endif
 
 
                 </ul>
+
+                    <ul class="primary-menu-menu" style="overflow: hidden;">
+                        <li class="ml-5 float-right ">
+                            <a href="/login">Login</a>
+                        </li>
+                    </ul>
+
+
+                    <ul class="primary-menu-menu" style="overflow: hidden;">
+                        <li class="ml-5 float-right ">
+                            <a href="/register">Register</a>
+                        </li>
+                    </ul>
+
             </nav>
             <ul class="nav-add">
                 <li class="search search_main" style="color: black; margin-top: 5px;">
@@ -40,6 +54,7 @@
                     </a>
                 </li>
             </ul>
+
         </div>
     </div>
 </header>

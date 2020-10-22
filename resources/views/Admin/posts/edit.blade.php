@@ -62,7 +62,7 @@
                 </div>
                 <div class="form-group">
                     <label for="">Content</label>
-                    <textarea name="content" class="form-control" rows="5" column="10" >{{$post->content}}</textarea>
+                    <textarea name="content" id="summer" class="form-control" rows="5" column="10" >{{$post->content}}</textarea>
                 </div>
                 <div class="form-group">
                     <input type="submit" class="btn btn-success "  value="Update post">
@@ -73,4 +73,19 @@
         </div>
 
     </div>
+@endsection
+
+@section('styles')
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.18/summernote-bs4.min.css">
+@endsection
+
+
+
+@section('scripts')
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.18/summernote-bs4.min.js"></script>
+    <script>
+
+        $('#summer').summernote();
+
+    </script>
 @endsection

@@ -15,7 +15,7 @@ class ProfileController extends Controller
      */
     public function index()
     {
-        //
+
         $user = Auth::user();
         return view('Admin.user.profile',compact('user'));
 
@@ -72,8 +72,8 @@ class ProfileController extends Controller
             $user->save();
         } //if password is given, only then password will be changed
 
-        $user->name = $request->name;
-        $user->email = $request->email;
+
+        $user->profile->facebook = $request->facebook;
         $user->profile->facebook = $request->facebook;
         $user->profile->youtube = $request->youtube;
         $user->profile->instagram = $request->instagram;

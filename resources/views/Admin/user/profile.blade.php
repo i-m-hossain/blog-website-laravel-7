@@ -38,23 +38,23 @@
 
                 <div class="form-group">
                     <label for="facebook">Facebook Profile</label>
-                    <input type="text" name="facebook" class="form-control" value="{{$user->profile->facebook}}">
+                    <input type="text" name="facebook" class="form-control" value="{{$user->profile ? $user->profile->facebook : 'http://'}}">
                 </div>
                 <div class="form-group">
                     <label for="facebook">Youtube Profile</label>
-                    <input type="text" name="youtube" value="{{$user->profile->youtube}}" class="form-control" >
+                    <input type="text" name="youtube" value="{{$user->profile ? $user->profile->youtube :'http://'}}" class="form-control" >
                 </div>
                 <div class="form-group">
                     <label for="facebook">Instagram Profile</label>
-                    <input type="text" name="instagram" value="{{$user->profile->instagram}}" class="form-control" >
+                    <input type="text" name="instagram" value="{{$user->profile ? $user->profile->instagram :'http://'}}" class="form-control" >
                 </div>
                 <div class="form-group">
                     <label for="facebook">Twitter profile</label>
-                    <input type="text" name="twitter" value="{{$user->profile->twitter}}" class="form-control" >
+                    <input type="text" name="twitter" value="{{$user->profile ? $user->profile->twitter :'http://'}}" class="form-control" >
                 </div>
                 <div class="form-group">
                     <label for="about">About</label>
-                    <textarea name="about" cols="30" rows="5" class="form-control">{{$user->profile->about}}</textarea>
+                    <textarea name="about" cols="30" rows="5" class="form-control">{{$user->profile ? $user->profile->about : 'http://'}}</textarea>
                 </div>
 
                 <div class="form-group">

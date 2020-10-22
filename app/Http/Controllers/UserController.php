@@ -63,10 +63,12 @@ class UserController extends Controller
 
         $user = User::create($data);
 
+
         $profile = Profile::create([
             'user_id' => $user->id,
             'avatar' => 'uploads/avatar/1.jpg'
         ]);
+
 
 
         return redirect()->back()->with('message', 'User has been created successfully');

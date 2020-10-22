@@ -1,6 +1,9 @@
 <?php
 
+use Spatie\Newsletter\NewsletterFacade;
 use Illuminate\Support\Facades\Route;
+
+
 
 /*
 |--------------------------------------------------------------------------
@@ -13,6 +16,22 @@ use Illuminate\Support\Facades\Route;
 |
 */
 Route::get('/post/{slug}','FrontEndController@singlePost')->name('post.single');
+
+
+Route::post('/subscribe', function (){
+    $email = request('email');
+    if ( ! Newsletter::isSubscribed($email) ) {
+        Newsletter::subscribe($email);
+        return redirect()->back()->with('message','Successfully subscribed');
+
+    }else{
+        return redirect()->back()->with('error','You are already subscribed');
+    }
+})->name('subscribe.mailchimp');
+
+
+
+
 Route::get('/user/post/{id}','FrontEndController@userPost')->name('user.post');
 
 //search  query
@@ -53,7 +72,7 @@ Route::middleware('auth')->prefix('admin')->group(function () {
 
     Route::resource('/tag', 'TagController');
 
-    Route::get('/home', 'HomeController@index')->name('home');
+    Route::get('/dashboard', 'HomeController@index')->name('dashboard');
 
     Route::resource('/category', 'CategoryController');
 
