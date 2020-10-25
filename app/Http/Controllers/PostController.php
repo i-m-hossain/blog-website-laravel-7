@@ -199,7 +199,11 @@ class PostController extends Controller
 
 
     public function kill($id){
+
         $post = Post::withTrashed()->where('id', $id)->first();
+//        if (fileExists($post->featured_image)){
+//           return 'hi';
+//        }
         $post->forceDelete();
         return redirect()->back()->with('message', 'The post is deleted parmanently');
     }
